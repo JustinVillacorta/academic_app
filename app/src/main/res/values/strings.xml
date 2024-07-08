@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Academic</string>
+    <string name="title_name">Welcome To Academic App</string>
+    <string name="username_input">Username</string>
+    <string name="password_input">Password</string>
+    <string name="login_button">Login</string>
+    <string name="logo_start">Logo</string>
+</resources>
