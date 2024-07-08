@@ -12,7 +12,7 @@
     </cloud-backup>
     <!--
     <device-transfer>
-        <include .../>
+        <include f.../>
         <exclude .../>
     </device-transfer>
     -->
