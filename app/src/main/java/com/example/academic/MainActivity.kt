@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
                 //testing
                 // isa pa
                 // taem
+                // bigat
             }
         }
 
