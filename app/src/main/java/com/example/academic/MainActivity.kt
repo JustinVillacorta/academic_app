@@ -32,6 +32,10 @@ class MainActivity : AppCompatActivity() {
                 // Both username and password are not empty, proceed with the intent
                 val intent = Intent(this, MainActivity2::class.java)
                 startActivity(intent)
+                //gumagana
+                //testing
+                // isa pa
+                // taem
             }
         }
 
