@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, MainActivity2::class.java)
                 startActivity(intent)
                 //gumagana
+                //testing
             }
         }
 
