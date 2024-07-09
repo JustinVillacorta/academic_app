@@ -15,8 +15,8 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        val username = findViewById<EditText>(R.id.editTextText2)
-        val password = findViewById<EditText>(R.id.editTextTextPassword2)
+        val username = findViewById<EditText>(R.id.username_input)
+        val password = findViewById<EditText>(R.id.password_input)
 
         val secondActbutton = findViewById<Button>(R.id.button)
         secondActbutton.setOnClickListener {
