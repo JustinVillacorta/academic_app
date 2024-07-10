@@ -4,5 +4,8 @@
     <string name="username_input">Username</string>
     <string name="password_input">Password</string>
     <string name="login_button">Login</string>
+    <string name="login_button_hint">Enter your login information</string>
+    <string name="signup_button">Signup</string>
+    <string name="signup_button_hint">Enter your signup information</string>
     <string name="logo_start">Logo</string>
 </resources>

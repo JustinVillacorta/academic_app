@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         val username = findViewById<EditText>(R.id.username_input)
         val password = findViewById<EditText>(R.id.password_input)
 
-        val secondActbutton = findViewById<Button>(R.id.button)
+        val secondActbutton = findViewById<Button>(R.id.loginbutton)
         secondActbutton.setOnClickListener {
             // Check if the username is empty
             if (username.text.toString().trim().isEmpty() && password.text.toString().trim().isEmpty()) {
