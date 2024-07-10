@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
 
         val secondActbutton = findViewById<Button>(R.id.loginbutton)
         secondActbutton.setOnClickListener {
-            // Check if the username is empty
+            // Check if the username is emptys
             if (username.text.toString().trim().isEmpty() && password.text.toString().trim().isEmpty()) {
                 username.error = "Enter a username" // Set username error message
                 password.error = "Enter a password" // Set password error message
