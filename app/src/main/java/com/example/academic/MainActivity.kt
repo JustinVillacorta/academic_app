@@ -2,12 +2,12 @@ package com.example.academic
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import org.xmlpull.v1.XmlPullParser
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,31 +18,47 @@ class MainActivity : AppCompatActivity() {
         val username = findViewById<EditText>(R.id.username_input)
         val password = findViewById<EditText>(R.id.password_input)
 
-        val secondActbutton = findViewById<Button>(R.id.loginbutton)
-        secondActbutton.setOnClickListener {
-            // Check if the username is emptys
-            if (username.text.toString().trim().isEmpty() && password.text.toString().trim().isEmpty()) {
-                username.error = "Enter a username" // Set username error message
-                password.error = "Enter a password" // Set password error message
-            } else if (username.text.toString().trim().isEmpty()) {
-                username.error = "Enter a username" // Set username error message
-            } else if (password.text.toString().trim().isEmpty()) {
-                password.error = "Enter a password" // Set password error message
+        val loginButton = findViewById<Button>(R.id.loginbutton)
+        loginButton.setOnClickListener {
+            val usernameStr = username.text.toString().trim()
+            val passwordStr = password.text.toString().trim()
+
+            if (usernameStr.isEmpty() || passwordStr.isEmpty()) {
+                username.error = "Enter a username"
+                password.error = "Enter a password"
             } else {
-                // Both username and password are not empty, proceed with the intent
-                val intent = Intent(this, MainActivity2::class.java)
-                startActivity(intent)
+                val parser = resources.getXml(R.xml.account)
+                var foundCredentials = false
+
+                while (parser.eventType != XmlPullParser.END_DOCUMENT) {
+                    if (parser.eventType == XmlPullParser.START_TAG && parser.name == "account") {
+                        val storedUsername = parser.getAttributeValue(null, "username")
+                        val storedPassword = parser.getAttributeValue(null, "password")
+
+                        Log.d("MainActivity", "Stored: $storedUsername - $storedPassword")
+                        if (storedUsername == usernameStr && storedPassword == passwordStr) {
+                            val intent = Intent(this, MainActivity2::class.java)
+                            startActivity(intent)
+                            foundCredentials = true
+                            break
+                        }
+                    }
+                    parser.next()
+                }
+
+                if (!foundCredentials) {
+                    username.error = "Invalid username or password"
+                    password.error = "Invalid username or password"
+                }
             }
-        }
-
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
         }
     }
 }
+
+
+
+
+
 
 
 

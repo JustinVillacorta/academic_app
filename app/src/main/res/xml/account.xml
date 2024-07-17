@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<accounts>
+    <account username="user1" password="pass1" />
+    <account username="user2" password="pass2" />
+    <!-- Add more accounts if needed -->
+</accounts>
