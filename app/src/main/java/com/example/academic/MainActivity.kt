@@ -2,9 +2,12 @@ package com.example.academic
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.SpannableString
+import android.text.style.UnderlineSpan
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import org.xmlpull.v1.XmlPullParser
@@ -17,6 +20,16 @@ class MainActivity : AppCompatActivity() {
 
         val username = findViewById<EditText>(R.id.username_input)
         val password = findViewById<EditText>(R.id.password_input)
+        val textViewSignUpNow = findViewById<TextView>(R.id.textViewSignUpNow)
+
+        val content = SpannableString("Sign up now")
+        content.setSpan(UnderlineSpan(), 0, content.length, 0)
+        textViewSignUpNow.text = content
+
+        textViewSignUpNow.setOnClickListener {
+            val intent = Intent(this, Sign_up::class.java)
+            startActivity(intent)
+        }
 
         val loginButton = findViewById<Button>(R.id.loginbutton)
         loginButton.setOnClickListener {

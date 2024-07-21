@@ -4,98 +4,89 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".Exams">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".Exams" >
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <!-- First CardView (subject_card) -->
+        <!-- CardView 1 -->
         <androidx.cardview.widget.CardView
-            android:id="@+id/subject_card"
-            android:layout_width="300dp"
+            android:id="@+id/subject_card1"
+            android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="@color/material_dynamic_primary80"
-            android:elevation="4dp"
-            android:translationZ="4dp"
-            app:cardBackgroundColor="@color/material_dynamic_primary80"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/design_default_color_secondary"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp">
+
+
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="16dp">
 
-                <!-- Subject Code -->
                 <TextView
-                    android:id="@+id/subject_code"
+                    android:id="@+id/subject_code1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="8dp"
                     android:text="ITE:300"
                     android:textColor="#000000"
                     android:textSize="34sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="8dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"/>
+                    android:textStyle="bold" />
 
-                <!-- Subject Info -->
                 <TextView
-                    android:id="@+id/subject_info"
+                    android:id="@+id/subject_info1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_below="@id/subject_code1"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="8dp"
                     android:text="Subject Information goes here."
                     android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:layout_below="@id/subject_code"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginTop="8dp"/>
+                    android:textSize="14sp" />
 
-                <!-- Next Button -->
                 <Button
-                    android:id="@+id/next_button"
+                    android:id="@+id/next_button1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Next"
-                    android:textColor="#FFFFFF"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="8dp"
-                    android:backgroundTint="@color/design_default_color_primary_dark"/>
+                    android:backgroundTint="@color/design_default_color_primary_dark"
+                    android:text="Next"
+                    android:textColor="#FFFFFF" />
 
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Second CardView (subject_card2) -->
+
+
+        <!-- CardView 2 -->
         <androidx.cardview.widget.CardView
             android:id="@+id/subject_card2"
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="@color/material_dynamic_primary80"
-            android:elevation="4dp"
-            android:translationZ="4dp"
-            app:cardBackgroundColor="@color/material_dynamic_primary80"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/subject_card">
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/design_default_color_secondary"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp">
+
+
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="16dp">
 
-                <!-- Subject Code -->
                 <TextView
                     android:id="@+id/subject_code2"
                     android:layout_width="wrap_content"
@@ -104,11 +95,10 @@
                     android:textColor="#000000"
                     android:textSize="34sp"
                     android:textStyle="bold"
-                    android:layout_marginTop="8dp"
                     android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"/>
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="8dp"/>
 
-                <!-- Subject Info -->
                 <TextView
                     android:id="@+id/subject_info2"
                     android:layout_width="wrap_content"
@@ -120,7 +110,6 @@
                     android:layout_alignParentStart="true"
                     android:layout_marginTop="8dp"/>
 
-                <!-- Next Button -->
                 <Button
                     android:id="@+id/next_button2"
                     android:layout_width="wrap_content"
@@ -136,27 +125,21 @@
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Third CardView (subject_card3) -->
+        <!-- CardView 3 -->
         <androidx.cardview.widget.CardView
             android:id="@+id/subject_card3"
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="@color/material_dynamic_primary80"
-            android:elevation="4dp"
-            android:translationZ="4dp"
-            app:cardBackgroundColor="@color/material_dynamic_primary80"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/subject_card2">
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/design_default_color_secondary"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="16dp">
 
-                <!-- Subject Code -->
                 <TextView
                     android:id="@+id/subject_code3"
                     android:layout_width="wrap_content"
@@ -165,11 +148,10 @@
                     android:textColor="#000000"
                     android:textSize="34sp"
                     android:textStyle="bold"
-                    android:layout_marginTop="8dp"
                     android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"/>
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="8dp"/>
 
-                <!-- Subject Info -->
                 <TextView
                     android:id="@+id/subject_info3"
                     android:layout_width="wrap_content"
@@ -181,7 +163,6 @@
                     android:layout_alignParentStart="true"
                     android:layout_marginTop="8dp"/>
 
-                <!-- Next Button -->
                 <Button
                     android:id="@+id/next_button3"
                     android:layout_width="wrap_content"
@@ -197,27 +178,21 @@
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Fourth CardView (subject_card4) -->
+        <!-- CardView 4 -->
         <androidx.cardview.widget.CardView
             android:id="@+id/subject_card4"
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="@color/material_dynamic_primary80"
-            android:elevation="4dp"
-            android:translationZ="4dp"
-            app:cardBackgroundColor="@color/material_dynamic_primary80"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/subject_card3">
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/design_default_color_secondary"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="16dp">
 
-                <!-- Subject Code -->
                 <TextView
                     android:id="@+id/subject_code4"
                     android:layout_width="wrap_content"
@@ -226,11 +201,10 @@
                     android:textColor="#000000"
                     android:textSize="34sp"
                     android:textStyle="bold"
-                    android:layout_marginTop="8dp"
                     android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"/>
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="8dp"/>
 
-                <!-- Subject Info -->
                 <TextView
                     android:id="@+id/subject_info4"
                     android:layout_width="wrap_content"
@@ -242,7 +216,6 @@
                     android:layout_alignParentStart="true"
                     android:layout_marginTop="8dp"/>
 
-                <!-- Next Button -->
                 <Button
                     android:id="@+id/next_button4"
                     android:layout_width="wrap_content"
@@ -258,5 +231,271 @@
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- CardView 5 -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/subject_card5"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/design_default_color_secondary"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/subject_code5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ITE:304"
+                    android:textColor="#000000"
+                    android:textSize="34sp"
+                    android:textStyle="bold"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="8dp"/>
+
+                <TextView
+                    android:id="@+id/subject_info5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Subject Information goes here."
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:layout_below="@id/subject_code5"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="8dp"/>
+
+                <Button
+                    android:id="@+id/next_button5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Next"
+                    android:textColor="#FFFFFF"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:backgroundTint="@color/design_default_color_primary_dark"/>
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- CardView 6 -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/subject_card6"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/design_default_color_secondary"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/subject_code6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ITE:305"
+                    android:textColor="#000000"
+                    android:textSize="34sp"
+                    android:textStyle="bold"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="8dp"/>
+
+                <TextView
+                    android:id="@+id/subject_info6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Subject Information goes here."
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:layout_below="@id/subject_code6"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="8dp"/>
+
+                <Button
+                    android:id="@+id/next_button6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Next"
+                    android:textColor="#FFFFFF"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:backgroundTint="@color/design_default_color_primary_dark"/>
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- CardView 7 -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/subject_card7"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/design_default_color_secondary"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/subject_code7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ITE:306"
+                    android:textColor="#000000"
+                    android:textSize="34sp"
+                    android:textStyle="bold"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="8dp"/>
+
+                <TextView
+                    android:id="@+id/subject_info7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Subject Information goes here."
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:layout_below="@id/subject_code7"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="8dp"/>
+
+                <Button
+                    android:id="@+id/next_button7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Next"
+                    android:textColor="#FFFFFF"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:backgroundTint="@color/design_default_color_primary_dark"/>
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- CardView 8 -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/subject_card8"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/design_default_color_secondary"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/subject_code8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ITE:307"
+                    android:textColor="#000000"
+                    android:textSize="34sp"
+                    android:textStyle="bold"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="8dp"/>
+
+                <TextView
+                    android:id="@+id/subject_info8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Subject Information goes here."
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:layout_below="@id/subject_code8"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="8dp"/>
+
+                <Button
+                    android:id="@+id/next_button8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Next"
+                    android:textColor="#FFFFFF"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:backgroundTint="@color/design_default_color_primary_dark"/>
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- CardView 9 -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/subject_card9"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/design_default_color_secondary"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/subject_code9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ITE:308"
+                    android:textColor="#000000"
+                    android:textSize="34sp"
+                    android:textStyle="bold"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="8dp"/>
+
+                <TextView
+                    android:id="@+id/subject_info9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Subject Information goes here."
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:layout_below="@id/subject_code9"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="8dp"/>
+
+                <Button
+                    android:id="@+id/next_button9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Next"
+                    android:textColor="#FFFFFF"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:backgroundTint="@color/design_default_color_primary_dark"/>
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
 </ScrollView>
+
