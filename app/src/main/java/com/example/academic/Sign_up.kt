@@ -9,42 +9,50 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import android.widget.Toast
 
 class Sign_up : AppCompatActivity() {
+
+    private lateinit var db: DatabaseHelper
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_sign_up)
 
+        db = DatabaseHelper(this)
 
         val username = findViewById<EditText>(R.id.Susername_input)
         val password = findViewById<EditText>(R.id.Spassword_input)
-        val SignupBtn = findViewById<Button>(R.id.SignUp_Btn)
+        val signupBtn = findViewById<Button>(R.id.SignUp_Btn)
         val textViewSignUp = findViewById<TextView>(R.id.textViewSignUp)
 
-
-
-        SignupBtn.setOnClickListener {
-
+        signupBtn.setOnClickListener {
             val usernameString = username.text.toString().trim()
             val passwordString = password.text.toString().trim()
 
-
-            if ( usernameString.isEmpty() || passwordString.isEmpty())
+            if (usernameString.isEmpty()) {
                 username.error = "Enter a username"
+                return@setOnClickListener
+            }
+
+            if (passwordString.isEmpty()) {
                 password.error = "Enter a password"
+                return@setOnClickListener
+            }
+
+            if (db.isUsernameAvailable(usernameString)) {
+                val isInserted = db.addUser(usernameString, passwordString, 0, 0, "")
+                if (isInserted) {
+                    Toast.makeText(this, "User Registered Successfully", Toast.LENGTH_SHORT).show()
+                    // Optionally, navigate to another activity or clear fields
+                } else {
+                    Toast.makeText(this, "Registration Failed", Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                Toast.makeText(this, "Username is not available", Toast.LENGTH_SHORT).show()
+            }
         }
-
-
-
-
-
-
-
-
-
 
         val content = SpannableString("Log in")
         content.setSpan(UnderlineSpan(), 0, content.length, 0)
@@ -54,8 +62,5 @@ class Sign_up : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
-
-
-
-        }
     }
+}
