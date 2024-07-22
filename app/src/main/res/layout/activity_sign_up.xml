@@ -38,8 +38,8 @@
     <!-- Username EditText -->
     <EditText
         android:id="@+id/Susername_input"
-        android:layout_width="299dp"
-        android:layout_height="60dp"
+        android:layout_width="302dp"
+        android:layout_height="56dp"
         android:hint="@string/username_input"
         android:inputType="text"
         android:padding="16dp"
@@ -55,8 +55,8 @@
     <!-- Password EditText -->
     <EditText
         android:id="@+id/Spassword_input"
-        android:layout_width="299dp"
-        android:layout_height="56dp"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
         android:hint="@string/password_input"
         android:inputType="textPassword"
         android:padding="16dp"

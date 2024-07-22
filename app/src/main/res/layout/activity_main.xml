@@ -39,18 +39,18 @@
     <EditText
         android:id="@+id/username_input"
         android:layout_width="300dp"
-        android:layout_height="48dp"
+        android:layout_height="63dp"
         android:hint="@string/username_input"
         android:inputType="text"
+        android:padding="16dp"
         android:textColorHint="@color/black"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/password_input"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintVertical_bias="0.5"
-        android:padding="16dp"
-        android:textSize="18sp" />
+        app:layout_constraintVertical_bias="0.5" />
 
     <!-- Password EditText -->
     <EditText
