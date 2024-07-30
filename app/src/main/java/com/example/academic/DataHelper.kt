@@ -13,6 +13,8 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         private const val DATABASE_VERSION = 1
         const val TABLE_NAME = "new_account"
         const val COLUMN_ID = "id"
+        const val COLUMN_FIRSTNAME = "firstname"
+        const val COLUMN_LASTNAME = "lastname"
         const val COLUMN_USERNAME = "username"
         const val COLUMN_PASSWORD = "password"
         const val COLUMN_QUIZ = "quiz"
@@ -23,6 +25,8 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     override fun onCreate(db: SQLiteDatabase) {
         val createTable = ("CREATE TABLE $TABLE_NAME ("
                 + "$COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + "$COLUMN_FIRSTNAME TEXT, "
+                + "$COLUMN_LASTNAME TEXT,  "
                 + "$COLUMN_USERNAME TEXT UNIQUE, "
                 + "$COLUMN_PASSWORD TEXT, "
                 + "$COLUMN_QUIZ INTEGER, "
@@ -36,9 +40,11 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         onCreate(db)
     }
 
-    fun addUser(username: String, password: String, quiz: Int, exam: Int, grade: String): Boolean {
+    fun addUser(firstname: String, lastname: String, username: String, password: String, quiz: Int, exam: Int, grade: String): Boolean {
         val db = this.writableDatabase
         val contentValues = ContentValues()
+        contentValues.put(COLUMN_FIRSTNAME, firstname)
+        contentValues.put(COLUMN_LASTNAME, lastname)
         contentValues.put(COLUMN_USERNAME, username)
         contentValues.put(COLUMN_PASSWORD, password)
         contentValues.put(COLUMN_QUIZ, quiz)

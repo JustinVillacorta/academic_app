@@ -45,6 +45,8 @@ class MainActivity : AppCompatActivity() {
                 password.error = "Enter a password"
             } else {
                 if (db.isUserExist(usernameStr)) {
+                    val intent = Intent(this, MainActivity2::class.java)
+                    startActivity(intent)
                     Toast.makeText(this, "Please wait for approval of your enrollment", Toast.LENGTH_SHORT).show()
                 } else {
                     username.error = "Invalid username or password"

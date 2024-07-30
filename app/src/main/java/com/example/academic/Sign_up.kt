@@ -21,15 +21,27 @@ class Sign_up : AppCompatActivity() {
         setContentView(R.layout.activity_sign_up)
 
         db = DatabaseHelper(this)
-
+        val firstname = findViewById<EditText>(R.id.firstname_input)
+        val lastname = findViewById<EditText>(R.id.lastname_input)
         val username = findViewById<EditText>(R.id.Susername_input)
         val password = findViewById<EditText>(R.id.Spassword_input)
         val signupBtn = findViewById<Button>(R.id.SignUp_Btn)
         val textViewSignUp = findViewById<TextView>(R.id.textViewSignUp)
 
         signupBtn.setOnClickListener {
+            val firstnameString = firstname.text.toString().trim()
+            val lastnameString = lastname.text.toString().trim()
             val usernameString = username.text.toString().trim()
             val passwordString = password.text.toString().trim()
+
+            if (firstnameString.isEmpty()){
+                firstname.error = "Enter your Firstname"
+                return@setOnClickListener
+            }
+            if (lastnameString.isEmpty()){
+                lastname.error = "Enter your Lastname"
+                return@setOnClickListener
+            }
 
             if (usernameString.isEmpty()) {
                 username.error = "Enter a username"
@@ -42,7 +54,7 @@ class Sign_up : AppCompatActivity() {
             }
 
             if (db.isUsernameAvailable(usernameString)) {
-                val isInserted = db.addUser(usernameString, passwordString, 0, 0, "")
+                val isInserted = db.addUser(firstnameString, lastnameString, usernameString, passwordString, 0, 0, "")
                 if (isInserted) {
                     Toast.makeText(this, "User Registered Successfully", Toast.LENGTH_SHORT).show()
                     // Optionally, navigate to another activity or clear fields

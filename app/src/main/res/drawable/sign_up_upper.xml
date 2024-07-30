@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="450dp"
+    android:height="514dp"
+    android:viewportWidth="375"
+    android:viewportHeight="514">
+
+    <group>
+        <!-- Clip-path for rounded corners -->
+        <clip-path
+            android:pathData="M0,0 H375 V464 Q375,514 325,514 H50 Q0,514 0,464 Z" />
+
+        <!-- Background path with solid color -->
+        <path
+            android:pathData="M0 0V514H375V0"
+            android:fillColor="#ADDBE6" />
+
+        <!-- Rotated group with gradient fill -->
+        <group
+            android:translateX="1"
+            android:translateY="0"
+            android:pivotX="187.5"
+            android:pivotY="257"
+            android:scaleX="2"
+            android:scaleY="2">
+
+            <!-- Path with gradient fill -->
+            <path
+                android:pathData="M0 0V514H375V0">
+                <gradient
+                    android:type="linear"
+                    android:startX="93.75"
+                    android:startY="257"
+                    android:endX="281.25"
+                    android:endY="257">
+                    <item
+                        android:color="#ADDBE6"
+                        android:offset="0" />
+                </gradient>
+            </path>
+        </group>
+    </group>
+</vector>

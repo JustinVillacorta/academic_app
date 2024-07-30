@@ -5,20 +5,31 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/sign_upbg"
     tools:context=".MainActivity">
 
     <!-- ImageView (Logo) -->
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="303dp"
-        android:layout_height="340dp"
-        android:contentDescription="@string/logo_start"
-        app:layout_constraintBottom_toTopOf="@+id/textView5"
-        app:layout_constraintDimensionRatio="H,500:400"
+
+    <View
+        android:id="@+id/rectangle_4"
+        android:layout_width="430dp"
+        android:layout_height="640dp"
+        android:background="@drawable/sign_up_upper"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="232dp"
+        android:layout_height="219dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05"
         app:srcCompat="@drawable/logo" />
 
     <!-- Welcome Text -->
@@ -53,6 +64,8 @@
         app:layout_constraintVertical_bias="0.5" />
 
     <!-- Password EditText -->
+
+    <!-- Login Button -->
     <EditText
         android:id="@+id/password_input"
         android:layout_width="305dp"
@@ -64,12 +77,11 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/loginbutton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.481"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username_input"
         app:layout_constraintVertical_bias="0.5" />
 
-    <!-- Login Button -->
     <Button
         android:id="@+id/loginbutton"
         android:layout_width="300dp"
