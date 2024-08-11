@@ -1,4 +1,3 @@
-// Sign_up.kt
 package com.example.academic
 
 import android.content.Intent
@@ -39,17 +38,17 @@ class Sign_up : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val registerRequest = RegisterRequest(firstnameString, lastnameString, usernameString, passwordString)
-            RetrofitInstance.api.registerUser(registerRequest).enqueue(object : Callback<RegisterResponse> {
+            val registrationRequest = RegisterRequest(firstnameString, lastnameString, usernameString, passwordString)
+            RetrofitInstance.api.registerUser(registrationRequest).enqueue(object : Callback<RegisterResponse> {
                 override fun onResponse(call: Call<RegisterResponse>, response: Response<RegisterResponse>) {
                     if (response.isSuccessful) {
                         val responseBody = response.body()
-                        if (responseBody?.success == true) {
+                        if (responseBody != null && responseBody.success) {
                             val intent = Intent(this@Sign_up, MainActivity::class.java)
                             startActivity(intent)
                             Toast.makeText(this@Sign_up, "User Registered Successfully", Toast.LENGTH_SHORT).show()
                         } else {
-                            Toast.makeText(this@Sign_up, "Registration failed: ${responseBody?.message}", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@Sign_up, responseBody?.message ?: "Registration failed", Toast.LENGTH_SHORT).show()
                         }
                     } else {
                         Toast.makeText(this@Sign_up, "Registration failed", Toast.LENGTH_SHORT).show()
