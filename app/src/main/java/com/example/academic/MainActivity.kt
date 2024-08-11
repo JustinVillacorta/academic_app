@@ -1,4 +1,3 @@
-// MainActivity.kt
 package com.example.academic
 
 import android.content.Intent
@@ -34,17 +33,13 @@ class MainActivity : AppCompatActivity() {
                 val loginRequest = LoginRequest(usernameStr, passwordStr)
                 RetrofitInstance.api.loginUser(loginRequest).enqueue(object : Callback<LoginResponse> {
                     override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
-                        if (response.isSuccessful) {
-                            val loginResponse = response.body()
-                            if (loginResponse?.success == true) {
-                                val intent = Intent(this@MainActivity, MainActivity2::class.java)
-                                startActivity(intent)
-                                Toast.makeText(this@MainActivity, "Login successful", Toast.LENGTH_SHORT).show()
-                            } else {
-                                Toast.makeText(this@MainActivity, "Error: ${loginResponse?.message}", Toast.LENGTH_SHORT).show()
-                            }
+                        if (response.isSuccessful && response.body()?.success == true) {
+                            val intent = Intent(this@MainActivity, MainActivity2::class.java)
+                            startActivity(intent)
+                            Toast.makeText(this@MainActivity, "Login successful", Toast.LENGTH_SHORT).show()
                         } else {
-                            Toast.makeText(this@MainActivity, "Login failed", Toast.LENGTH_SHORT).show()
+                            val errorMessage = response.body()?.message ?: "Login failed"
+                            Toast.makeText(this@MainActivity, errorMessage, Toast.LENGTH_SHORT).show()
                         }
                     }
 
