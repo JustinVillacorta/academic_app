@@ -119,12 +119,13 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:focusable="true"
+        android:text="Sign Up Now"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textViewL"
         app:layout_constraintTop_toBottomOf="@+id/loginbutton"
-        android:layout_marginStart="0dp" /> <!-- No margin on the start -->
+        tools:ignore="TouchTargetSizeCheck" /> <!-- No margin on the start -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

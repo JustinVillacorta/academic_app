@@ -1,26 +1,23 @@
+// Sign_up.kt
 package com.example.academic
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.SpannableString
-import android.text.style.UnderlineSpan
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class Sign_up : AppCompatActivity() {
 
-    private lateinit var db: DatabaseHelper
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_sign_up)
 
-        db = DatabaseHelper(this)
         val firstname = findViewById<EditText>(R.id.firstname_input)
         val lastname = findViewById<EditText>(R.id.lastname_input)
         val username = findViewById<EditText>(R.id.Susername_input)
@@ -34,41 +31,36 @@ class Sign_up : AppCompatActivity() {
             val usernameString = username.text.toString().trim()
             val passwordString = password.text.toString().trim()
 
-            if (firstnameString.isEmpty()){
-                firstname.error = "Enter your Firstname"
-                return@setOnClickListener
-            }
-            if (lastnameString.isEmpty()){
-                lastname.error = "Enter your Lastname"
-                return@setOnClickListener
-            }
-
-            if (usernameString.isEmpty()) {
-                username.error = "Enter a username"
+            if (firstnameString.isEmpty() || lastnameString.isEmpty() || usernameString.isEmpty() || passwordString.isEmpty()) {
+                if (firstnameString.isEmpty()) firstname.error = "Enter your Firstname"
+                if (lastnameString.isEmpty()) lastname.error = "Enter your Lastname"
+                if (usernameString.isEmpty()) username.error = "Enter a username"
+                if (passwordString.isEmpty()) password.error = "Enter a password"
                 return@setOnClickListener
             }
 
-            if (passwordString.isEmpty()) {
-                password.error = "Enter a password"
-                return@setOnClickListener
-            }
-
-            if (db.isUsernameAvailable(usernameString)) {
-                val isInserted = db.addUser(firstnameString, lastnameString, usernameString, passwordString, 0, 0, "")
-                if (isInserted) {
-                    Toast.makeText(this, "User Registered Successfully", Toast.LENGTH_SHORT).show()
-                    // Optionally, navigate to another activity or clear fields
-                } else {
-                    Toast.makeText(this, "Registration Failed", Toast.LENGTH_SHORT).show()
+            val registerRequest = RegisterRequest(firstnameString, lastnameString, usernameString, passwordString)
+            RetrofitInstance.api.registerUser(registerRequest).enqueue(object : Callback<RegisterResponse> {
+                override fun onResponse(call: Call<RegisterResponse>, response: Response<RegisterResponse>) {
+                    if (response.isSuccessful) {
+                        val responseBody = response.body()
+                        if (responseBody?.success == true) {
+                            val intent = Intent(this@Sign_up, MainActivity::class.java)
+                            startActivity(intent)
+                            Toast.makeText(this@Sign_up, "User Registered Successfully", Toast.LENGTH_SHORT).show()
+                        } else {
+                            Toast.makeText(this@Sign_up, "Registration failed: ${responseBody?.message}", Toast.LENGTH_SHORT).show()
+                        }
+                    } else {
+                        Toast.makeText(this@Sign_up, "Registration failed", Toast.LENGTH_SHORT).show()
+                    }
                 }
-            } else {
-                Toast.makeText(this, "Username is not available", Toast.LENGTH_SHORT).show()
-            }
-        }
 
-        val content = SpannableString("Log in")
-        content.setSpan(UnderlineSpan(), 0, content.length, 0)
-        textViewSignUp.text = content
+                override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
+                    Toast.makeText(this@Sign_up, "Registration failed: ${t.message}", Toast.LENGTH_SHORT).show()
+                }
+            })
+        }
 
         textViewSignUp.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
