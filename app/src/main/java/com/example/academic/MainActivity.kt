@@ -40,15 +40,15 @@ class MainActivity : AppCompatActivity() {
                                 startActivity(intent)
                                 Toast.makeText(this@MainActivity, "Login successful", Toast.LENGTH_SHORT).show()
                             } else {
-                                Toast.makeText(this@MainActivity, loginResponse?.message ?: "Login failed", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this@MainActivity, loginResponse?.message ?: "Login failed: Username and Password Is Incorrect", Toast.LENGTH_SHORT).show()
                             }
                         } else {
-                            Toast.makeText(this@MainActivity, "Login failed", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@MainActivity, "Login failed: Check Your Connection", Toast.LENGTH_SHORT).show()
                         }
                     }
 
                     override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                        Toast.makeText(this@MainActivity, "Login failed: ${t.message}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@MainActivity, "Connection Error: ${t.message}", Toast.LENGTH_SHORT).show()
                     }
                 })
             }
