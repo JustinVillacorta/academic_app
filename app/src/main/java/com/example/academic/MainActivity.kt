@@ -40,7 +40,8 @@ class MainActivity : AppCompatActivity() {
                                 startActivity(intent)
                                 Toast.makeText(this@MainActivity, "Login successful", Toast.LENGTH_SHORT).show()
                             } else {
-                                Toast.makeText(this@MainActivity, loginResponse?.message ?: "Login failed: Username and Password Is Incorrect", Toast.LENGTH_SHORT).show()
+                                val message = loginResponse?.message ?: "Login failed: Username and Password are incorrect"
+                                Toast.makeText(this@MainActivity, message, Toast.LENGTH_SHORT).show()
                             }
                         } else {
                             Toast.makeText(this@MainActivity, "Login failed: Check Your Connection", Toast.LENGTH_SHORT).show()
