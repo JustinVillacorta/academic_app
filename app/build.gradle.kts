@@ -38,6 +38,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidx.activity)
     val nav_version = "2.7.7"
 
     // Navigation components
@@ -64,4 +65,7 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.3")
+    //recyclerview
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
+    implementation("androidx.recyclerview:recyclerview-selection:1.1.0")
 }
