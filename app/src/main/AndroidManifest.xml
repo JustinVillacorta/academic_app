@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <!-- Add internet permission -->
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -15,20 +16,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Academic"
         tools:targetApi="31">
-        <activity
-            android:name=".recyclerview"
-            android:exported="false" />
-        <activity
-            android:name=".moderator"
-            android:exported="false" />
+
+        <!-- Sign-up Activity -->
         <activity
             android:name=".Sign_up"
             android:exported="false" />
+
+        <!-- Main Activity 2 -->
         <activity
             android:name=".MainActivity2"
             android:exported="false"
             android:screenOrientation="portrait"
             tools:ignore="DiscouragedApi,LockedOrientationActivity" />
+
+        <!-- Main Activity -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -36,10 +37,10 @@
             tools:ignore="DiscouragedApi,LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
